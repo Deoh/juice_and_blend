@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	{% for dri in drink %}
+        {{dri.category_name}}  
+        {{dri.drink_name}}
+	    {{dri.ingredient_name}}
+	    {{dri.instruction}}
+	    {{dri.general_fitness}}
+        {{dri.aerobic_exercise}}
+        {{dri.muscular_strength}}
+        {{dri.high_energy_sport}}
+        {{dri.low_energy_sport}}
+        {{dri.endurance_activities}}
+	{% endfor %}
+</body>
+
+</html>
