@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
 
-<body>
-	{% for dri in drink %}
-        {{dri.category_name}}  
-        {{dri.drink_name}}
-	    {{dri.ingredient_name}}
-	    {{dri.instruction}}
-	    {{dri.general_fitness}}
-        {{dri.aerobic_exercise}}
-        {{dri.muscular_strength}}
-        {{dri.high_energy_sport}}
-        {{dri.low_energy_sport}}
-        {{dri.endurance_activities}}
-	{% endfor %}
-</body>
+ <ul class="collapsible" data-collapsible="accordion">
+        {% for dri in drink %}
+        <li>
+            <div class="collapsible-header">
 
-</html>
+                <div class=" task_header col s9">
+                    <i class="material-icons">expand_more</i><strong>{{dri.drink_name}}</strong> - {{dri.ingredient_name}}
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    {{dri.instruction}}
+                </span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
+{{dri.category_name}}
+{{dri.drink_name}}
+{{dri.ingredient_name}}
+{{dri.instruction}}
+{{dri.general_fitness}}
+{{dri.aerobic_exercise}}
+{{dri.muscular_strength}}
+{{dri.high_energy_sport}}
+{{dri.low_energy_sport}}
+{{dri.endurance_activities}}
