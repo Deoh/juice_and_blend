@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+{% for drin in drink %}
+{{drin.category_name}}
+{{drin.drink_name}}
+{{drin.ingredient_name}}
+{{drin.instruction}}
+{{drin.general_fitness}}
+{{drin.aerobic_exercise}}
+{{drin.muscular_strength}}
+{{drin.high_energy_sport}}
+{{drin.low_energy_sport}}
+{{drin.endurance_activities}}
+{% endfor %}
 
 
  <ul class="collapsible" data-collapsible="accordion">

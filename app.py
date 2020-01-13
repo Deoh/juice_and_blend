@@ -30,6 +30,13 @@ def add_drink():
                            categories=mongo.db.categories.find())
 
 
+@app.route('/insert_drink', methods=['POST'])
+def insert_drink():
+    drink = mongo.db.drink
+    drink.insert_one(request.form.to_dict())
+    return redirect(url_for('get_drink'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
