@@ -27,14 +27,24 @@ def get_drink():
 @app.route('/add_drink')
 def add_drink():
     return render_template('addDrink.html',
-                           categories=mongo.db.categories.find())
+                           categories=mongo.db.categories.find(),
+                           ingredients=mongo.db.ingredients.find())
 
 
 @app.route('/insert_drink', methods=['POST'])
 def insert_drink():
     drink = mongo.db.drink
     drink.insert_one(request.form.to_dict())
+    drink.insert_one(request.form.to_dict(flat=False))
     return redirect(url_for('get_drink'))
+
+
+@app.route('/edit_drink/<drink_id>')
+def edit_drink(drink_id):
+    the_drink = mongo.db.drink.find_one({"_id": ObjectId(drink_id)})
+    return render_template('editDrink.html', drink=the_drink,
+                           categories=mongo.db.categories.find(),
+                           ingredients=mongo.db.ingredients.find())
 
 
 if __name__ == '__main__':
