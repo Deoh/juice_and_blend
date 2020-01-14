@@ -66,6 +66,12 @@ def update_drink(drink_id):
     return redirect(url_for('get_drink'))
 
 
+@app.route('/remove_drink/<drink_id>')
+def remove_drink(drink_id):
+    mongo.db.drink.remove({'_id': ObjectId(drink_id)})
+    return redirect(url_for('get_drink'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
