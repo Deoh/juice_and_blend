@@ -47,6 +47,25 @@ def edit_drink(drink_id):
                            ingredients=mongo.db.ingredients.find())
 
 
+@app.route('/update_drink/<drink_id>', methods=["POST"])
+def update_drink(drink_id):
+    drink = mongo.db.drink
+    drink.update({'_id': ObjectId(drink_id)},
+    {
+        'drink_name': request.form.get('drink_name'),
+        'category_name': request.form.get('category_name'),
+        'ingredient_name': request.form.get('ingredient_name'),
+        'instruction': request.form.get('instruction'),
+        'general_fitness': request.form.get('general_fitness'),
+        'aerobic_exercise': request.form.get('aerobic_exercise'),
+        'muscular_strength': request.form.get('muscular_strength'),
+        'high_energy_sport': request.form.get('high_energy_sport'),
+        'low_energy_sport': request.form.get('low_energy_sport'),
+        'endurance_activities': request.form.get('endurance_activities')
+    })
+    return redirect(url_for('get_drink'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
