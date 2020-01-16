@@ -34,8 +34,21 @@ def add_drink():
 @app.route('/insert_drink', methods=['POST'])
 def insert_drink():
     drink = mongo.db.drink
-    drink.insert_one(request.form.to_dict())
-    drink.insert_one(request.form.to_dict(flat=False))
+   #drink.insert_one(request.form.to_dict())
+    #drink.insert_one(request.form.to_dict(flat=False))
+
+    drink.insert_one({
+        'drink_name': request.form.to_dict()['drink_name'],
+        'category_name': request.form.to_dict()['category_name'],
+        'ingredient_name': request.form.to_dict(flat=False)['ingredient_name'],
+        'instruction': request.form.to_dict()['instruction'],
+        'general_fitness': request.form.to_dict()['general_fitness'],
+        'aerobic_exercise': request.form.to_dict()['aerobic_exercise'],
+        'muscular_strength': request.form.to_dict()['muscular_strength'],
+        'high_energy_sport': request.form.to_dict()['high_energy_sport'],
+        'low_energy_sport': request.form.to_dict()['low_energy_sport'],
+        'endurance_activities': request.form.to_dict()['endurance_activities']
+    })
     return redirect(url_for('get_drink'))
 
 

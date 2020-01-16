@@ -26,7 +26,41 @@
 		$(document).ready(function(){
             $('.collapsible').collapsible();
             $('select').material_select();
+
+
+            // switch input
+            $('#general_fitness').click(function(){
+            if($(this).prop("checked") == true){
+                $('#general_fitnessH').prop( "disabled", true );
+            }
+            });
+            $('#aerobic_exercise').click(function(){
+            if($(this).prop("checked") == true){
+                $('#aerobic_exerciseH').prop( "disabled", true );
+            }
+            });
+            $('#muscular_strength').click(function(){
+            if($(this).prop("checked") == true){
+                $('#muscular_strengthH').prop( "disabled", true );
+            }
+            });
+            $('#high_energy_sport').click(function(){
+            if($(this).prop("checked") == true){
+                $('#high_energy_sportH').prop( "disabled", true );
+            }
+            });
+            $('#low_energy_sport').click(function(){
+            if($(this).prop("checked") == true){
+                $('#low_energy_sportH').prop( "disabled", true );
+            }
+            });
+            $('#endurance_activities').click(function(){
+            if($(this).prop("checked") == true){
+                $('#endurance_activitiesH').prop( "disabled", true );
+            }
+            });
         });
+        
 	</script>
 </body>
 

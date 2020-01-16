@@ -25,9 +25,9 @@
 				<label for="icon_prefix">Drink Name</label>
 			</div>
 		</div>
-		<!-- Ingedients Selector & Text Input-->
+		<!-- Ingredients Selector & Text Input-->
 		<div class="row">
-			<div class="input-field col s12 m6">
+			<!--<div class="input-field col s12 m6">
 				<i class="material-icons prefix">poll</i>
 				<select multiple id="ingredient" name="ingredient_name">
                     <option value="" disabled selected>Choose Ingredients</option>
@@ -36,7 +36,7 @@
                     {% endfor %}
                 </select>
 				<label>Ingredients</label>
-			</div>
+			</div>-->
 			<div class="input-field col s12 m6">
 				<i class="material-icons prefix">assignment</i>
 				<input id="ingredient_name" name="ingredient_name" type="text" class="validate">
@@ -54,43 +54,59 @@
 		<!-- Switch -->
 		<div class="row">
 			<div class="switch col s12 m6 l2">
+            
 				<label>
-                    <input id="general_fitness" name="general_fitness" type="checkbox">
+                    <input id="general_fitnessH" name="general_fitness" type='hidden' value='false' >
+                    <input id="general_fitness" name="general_fitness"  type='checkbox' value='true'>
+                    
+                    <!--<input id="general_fitness" name="general_fitness" type="checkbox" >-->
                     <span class="lever"></span>
+                    
                     General Fitness
                 </label>
 			</div>
 			<div class="switch col s12 m6 l2">
 				<label>
-                    <input id="aerobic_exercise" name="aerobic_exercise" type="checkbox">
+                    
+                    <input id="aerobic_exerciseH" name="aerobic_exercise" type="hidden" value="false" >
+                    <input id="aerobic_exercise" name="aerobic_exercise" type="checkbox" value='true' >
                     <span class="lever"></span>
+
                     Aerobic Exercise
                 </label>
 			</div>
 			<div class="switch col s12 m6 l2">
 				<label>
-                    <input id="muscular_strength" name="muscular_strength" type="checkbox">
+                    
+                    <input id="muscular_strengthH" name="muscular_strength" type="hidden" value="false" >
+                    <input id="muscular_strength" name="muscular_strength" type="checkbox" value='true'>
                     <span class="lever"></span>
                     Muscular Strength
                 </label>
 			</div>
 			<div class="switch col s12 m6 l2">
 				<label>
-                    <input id="high_energy_sport" name="high_energy_sport" type="checkbox">
+                    
+                    <input id="high_energy_sportH" name="high_energy_sport" type="hidden" value="false" >
+                    <input id="high_energy_sport" name="high_energy_sport" type="checkbox" value='true'>
                     <span class="lever"></span>
                     High Energy Sport
                 </label>
 			</div>
 			<div class="switch col s12 m6 l2">
 				<label>
-                    <input id="low_energy_sport" name="low_energy_sport" type="checkbox">
+                    
+                    <input id="low_energy_sportH" name="low_energy_sport" type="hidden" value="false" >
+                    <input id="low_energy_sport" name="low_energy_sport" type="checkbox" value='true'>
                     <span class="lever"></span>
                     Low Energy Sport
                 </label>
 			</div>
 			<div class="switch col s12 m6 l2">
 				<label>
-                    <input id="endurance_activities" name="endurance_activities" type="checkbox">
+                    
+                    <input id="endurance_activitiesH" name="endurance_activities" type="hidden" value="false" >
+                    <input id="endurance_activities" name="endurance_activities" type="checkbox" value='true'>
                     <span class="lever"></span>
                     Endurance Activities
                 </label>
