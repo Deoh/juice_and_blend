@@ -16,6 +16,7 @@ app.config["MONGO_DBNAME"] = "recipe_book"
 
 mongo = PyMongo(app)
 
+#------------------------Drinks----------------------
 
 @app.route('/')
 @app.route('/get_drink')
@@ -34,7 +35,9 @@ def add_drink():
 @app.route('/insert_drink', methods=['POST'])
 def insert_drink():
     drink = mongo.db.drink
-   #drink.insert_one(request.form.to_dict())
+    #come back to this
+    #ingredients = mongo.db.ingredients
+    #drink.insert(request.form.to_dict())
     #drink.insert_one(request.form.to_dict(flat=False))
 
     drink.insert_one({
@@ -49,6 +52,11 @@ def insert_drink():
         'low_energy_sport': request.form.to_dict()['low_energy_sport'],
         'endurance_activities': request.form.to_dict()['endurance_activities']
     })
+    #come back to this
+    ingredients.insert({
+        'ingredient_name': request.form.to_dict()['ingredient_name'][-1],
+    })
+
     return redirect(url_for('get_drink'))
 
 
@@ -84,6 +92,44 @@ def remove_drink(drink_id):
     mongo.db.drink.remove({'_id': ObjectId(drink_id)})
     return redirect(url_for('get_drink'))
 
+#------------------------Ingredients----------------------
+
+@app.route('/get_ingredients')
+def get_ingredients():
+    return render_template('ingredients.html',
+                           ingredients=mongo.db.ingredients.find())
+
+
+@app.route('/edit_ingredient/<ingredient_id>')
+def edit_ingredient(ingredient_id):
+    the_ingredient = mongo.db.ingredients.find_one({"_id": ObjectId(ingredient_id)})
+    return render_template('editIngredient.html', ingredient=the_ingredient)
+
+
+@app.route('/update_ingredient/<ingredient_id>', methods=["POST"])
+def update_ingredient(ingredient_id):
+    mongo.db.ingredients.update(
+        {'_id': ObjectId(ingredient_id)},
+        {'ingredient_name': request.form.get('ingredient_name')})
+    return redirect(url_for('get_ingredients'))
+
+
+@app.route('/delete_ingredient/<ingredient_id>')
+def delete_ingredient(ingredient_id):
+    mongo.db.ingredients.remove({'_id': ObjectId(ingredient_id)})
+    return redirect(url_for('get_ingredients'))
+
+
+@app.route('/insert_ingredient', methods=['POST'])
+def insert_ingredient():
+    category_doc = {'ingredient_name': request.form.get('ingredient_name')}
+    mongo.db.ingredients.insert_one(category_doc)
+    return redirect(url_for('get_ingredients'))
+
+
+@app.route('/add_ingredient')
+def add_ingredient():
+    return render_template('addIngredient.html')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

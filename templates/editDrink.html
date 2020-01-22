@@ -70,8 +70,9 @@
 			</div>
 			<div class="switch col s12 m6 l2">
 				<label>
+                    <input id="aerobic_exerciseH" name="aerobic_exercise" type="hidden" value="false" >
                     {% if drink.aerobic_exercise %}
-                    <input id="aerobic_exercise" name="aerobic_exercise" type="checkbox" checked>
+                    <input id="aerobic_exercise" name="aerobic_exercise" type="checkbox" value='true' checked>
                     {% else %}
                     <input id="aerobic_exercise" name="aerobic_exercise" type="checkbox">
                     {% endif %}
