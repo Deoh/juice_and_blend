@@ -34,29 +34,18 @@ def add_drink():
 
 @app.route('/insert_drink', methods=['POST'])
 def insert_drink():
-    drink = mongo.db.drink
-    #come back to this
-    #ingredients = mongo.db.ingredients
-    #drink.insert(request.form.to_dict())
-    #drink.insert_one(request.form.to_dict(flat=False))
-
-    drink.insert_one({
-        'drink_name': request.form.to_dict()['drink_name'],
-        'category_name': request.form.to_dict()['category_name'],
-        'ingredient_name': request.form.to_dict(flat=False)['ingredient_name'],
-        'instruction': request.form.to_dict()['instruction'],
-        'general_fitness': request.form.to_dict()['general_fitness'],
-        'aerobic_exercise': request.form.to_dict()['aerobic_exercise'],
-        'muscular_strength': request.form.to_dict()['muscular_strength'],
-        'high_energy_sport': request.form.to_dict()['high_energy_sport'],
-        'low_energy_sport': request.form.to_dict()['low_energy_sport'],
-        'endurance_activities': request.form.to_dict()['endurance_activities']
-    })
-    #come back to this
-    ingredients.insert({
-        'ingredient_name': request.form.to_dict()['ingredient_name'][-1],
-    })
-
+    mongo.db.drink.insert_one({
+            'category_name': request.form.to_dict()['category_name'],
+            'drink_name': request.form.to_dict()['drink_name'],
+            'ingredient_name': request.form.to_dict(flat=False)['ingredient_name'],
+            'instruction': request.form.to_dict()['instruction'],
+            'general_fitness': request.form.to_dict()['general_fitness'],
+            'aerobic_exercise': request.form.to_dict()['aerobic_exercise'],
+            'muscular_strength': request.form.to_dict()['muscular_strength'],
+            'high_energy_sport': request.form.to_dict()['high_energy_sport'],
+            'low_energy_sport': request.form.to_dict()['low_energy_sport'],
+            'endurance_activities': request.form.to_dict()['endurance_activities']
+        })
     return redirect(url_for('get_drink'))
 
 
@@ -70,8 +59,7 @@ def edit_drink(drink_id):
 
 @app.route('/update_drink/<drink_id>', methods=["POST"])
 def update_drink(drink_id):
-    drink = mongo.db.drink
-    drink.update({'_id': ObjectId(drink_id)},
+    mongo.db.drink.update({'_id': ObjectId(drink_id)},
     {
         'drink_name': request.form.get('drink_name'),
         'category_name': request.form.get('category_name'),
