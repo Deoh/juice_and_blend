@@ -19,6 +19,7 @@
 
 <body>
     <header>
+        <!------------------------ NavBar ---------------------------------->
         <nav>
             <div class="nav-wrapper">
                 <a href="{{url_for('get_drink')}}" class="brand-logo">J&B</a>
@@ -27,7 +28,9 @@
                     <li><a href="{{url_for('get_drink')}}">Drinks List</a></li>
                     <li><a href="{{url_for('get_ingredients')}}">Ingredients List</a></li>
                     <li><a href="{{url_for('add_drink')}}">Add Drink</a></li>
+                    <li><a href="{{url_for('add_ingredient')}}">Add Ingredient</a></li>
                 </ul>
+                <!-------------------------------------------------SideNav-->
                 <ul id="slide-out" class="sidenav">
                     <li>
                         <div class="user-view sidenav-image">
@@ -41,6 +44,7 @@
                     <li><a href="{{url_for('get_ingredients')}}"><i class="material-icons">view_list</i>Ingredients List</a></li>
                     <li><div class="divider"></div></li>
                     <li><a href="{{url_for('add_drink')}}"><i class="material-icons">playlist_add</i>Add Drink</a></li>
+                    <li><a href="{{url_for('add_ingredient')}}"><i class="material-icons">playlist_add</i>Add Ingredient</a></li>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 
