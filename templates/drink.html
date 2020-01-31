@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+<div class="parallax-container opaque-overlay">
+    <div class="parallax"><img src="{{url_for('static', filename='images/homepage-image.png')}}"></div>
+    <h1 class="title center">Juice & Blend</h1>
+    <h5 class="subtitle center">A place where you can find may drink recipes made of fresh fruits and vegetables and share your own!</h5>
+</div>
 <div class="flex-container">
 	{% for dri in drink %}
 	<div class="card">
 		<div class="card-image waves-effect waves-block waves-light">
-			<img class="activator" src="images/office.jpg">
+			<img class="activator" src="">
         </div>
 		<div class="card-content">
 			<span class="card-title activator grey-text text-darken-4"><strong>{{dri.drink_name}}</strong> - {% for i in dri.ingredient_name %} {{i}} {% endfor %}<i class="material-icons right">more_vert</i></span>
-			<p><a href="#">This is a link</a></p>
+			<a href="{{ url_for('remove_drink', drink_id=dri._id) }}" class="waves-effect waves-light btn btn_small">Del</a>
+			<a href="{{ url_for('edit_drink', drink_id=dri._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
 		</div>
 		<div class="card-reveal">
 			<span class="card-title grey-text text-darken-4">{{dri.drink_name}}<i class="material-icons right">close</i></span>
