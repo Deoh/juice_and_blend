@@ -26,8 +26,8 @@ Features include:
 
 ### Features Left to Implement
 - nutritional information to display for each ingredient in the ingredientas list.
-- Add a Global heat map to show the suicide rates between countries.
-- the ability for the user to add an image to their drinks recipe.
+- Add the ability to upload and show images on the drink recipe cards.
+- add an abouts page.
 
 ## Technologies Used
 
@@ -86,9 +86,7 @@ The website should work similarly across different browsers and screen sizes.
 
 
 ### Certain issues discovered when navigating the website were:
-- The navbar dropdown links doesn't properly indicate (highlight) what section of the website you are currently in.
-- The scrollbar appears on the mobile version of the site.
-- Using the carousel feature from bootstrap for embedded music videos from youtube confilicted with each other when trying to use the youtube nav icon (full screen, play/pause etc). the carousel next and prev button needed to be resized.
+- the homepage (drinks list) doesn't moved at a different speed than the foreground content while scrolling.
 
 ### HTML, CSS & JavaScript code
 - HTML and CSS validation via [w3.org](https://www.w3.org/).
@@ -108,6 +106,9 @@ This project is deployed though Heroku.
 - In the heroku page specify the IP and PORT. go into settings and under config variables add the IP and PORT key and set thier values.
 
 ## Credits
+
+### Media
+- The photos used in this site were obtained from [Google image](https://www.google.co.uk/imghp?hl=en&tab=wi&ogbl) search.
 
 ### Acknowledgements
 

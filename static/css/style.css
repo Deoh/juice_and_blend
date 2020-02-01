@@ -1,4 +1,13 @@
-/*----------------------------------------Special paddings/ margins/ text */
+/*----------------------------------------Special paddings/ margins/ text/ buttons */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
 
 .center {
     text-align: center
@@ -10,13 +19,23 @@
     justify-content: center;
     margin: 25px
 }
-.card {
-    width: 300px;
-    height: 300px;
-    margin: 10px 10px;
+
+.btn_small {
+    height: 24px;
+    width: 60px;
+    line-height: 24px;
+    margin: 5px 5px;
+    padding: 0 0.5em;
 }
 
+.right {
+    float: right; 
+}
 
+/*-------------------------Navbar--------------------------------*/
+.brand-logo {
+    margin: 0 20px;
+}
 /*-------------------------SideNav Image--------------------------------*/
 .sidenav-image {
     height: 180px;
@@ -30,7 +49,7 @@ img {
 /*------------------------- Jumbotron --------------------------------*/
 .title {
     font-size: 3.5em;
-    margin-top: 3em;
+    margin-top: 15%;
     color: white;
 }
 
@@ -44,35 +63,21 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-
-.btn_small {
-    height: 24px;
-    width: 60px;
-    line-height: 24px;
-    margin: 5px 5px;
-    padding: 0 0.5em;
+    background-color: rgba(0, 0, 0, 0.3)
 }
 
-.task_header {
-    margin-top: 5px;
+/*-------------------------Homepage--------------------------------*/
+.card {
+    min-width: 300px;
+    height: 300px;
+    margin: 10px 10px;
 }
 
-.right {
-    float: right; 
+.card_ingredient_list {
+    margin: 5px
 }
 
-.brand-logo {
-    margin: 10px;
-}
-
-
-/*-------------------------Add Drink--------------------------------*/
+/*-------------------------Ingredient Selector Dropdown--------------------------------*/
 .dropdwonHeight .select-wrapper ul.dropdown-content.active {
     max-height: 240px;
 }
-
-.switch {
-    margin-bottom: 10px;
-}
-

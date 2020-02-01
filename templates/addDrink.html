@@ -31,13 +31,14 @@
                 <div class="dropdwonHeight input-field col s12">
                     <i class="material-icons prefix">poll</i>
                     <select multiple id="ingredient" name="ingredient_name">
-                        <option value="" disabled selected>Choose Ingredients</option>
+                        <option value="" disabled>Choose Ingredients</option>
                         {% for ing in ingredients %}
                         <option value="{{ ing.ingredient_name }}">{{ ing.ingredient_name }}</option>
                         {% endfor %}
                     </select>
                     <label>Ingredients</label>
                 </div>
+            </div>
             <!------------------------ Instruction Text Input Form -------------------------->
             <div class="row">
                 <div class="input-field col s12">

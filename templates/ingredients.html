@@ -1,39 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>Ingredients</h3>
-
-<div class="row">
-	<table class="striped centered">
-		<thead>
-			<tr>
-				<th>Ingredient</th>
-				<th>Nutritional Info</th>
-				<th>Option</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			{% for ing in ingredients %}
+<div class="container">
+    <h3>Ingredients</h3>
+    <!------------------------ Ingedients  Table---------------------------->
+    <div class="row">
+        <table class="striped centered">
+            <thead>
                 <tr>
-                    <td><strong>{{ing.ingredient_name}}</strong></td>
-                    <td></td>
-                    <td>
-                        <a href="{{url_for('delete_ingredient', ingredient_id=ing._id)}}"
-                            class="waves-effect waves-light btn btn_small">Del</a>
-                        <a href="{{url_for('edit_ingredient', ingredient_id=ing._id)}}"
-                            class="waves-effect waves-light btn btn_small blue">Edit</a>
-                    </td>
+                    <th>Ingredient</th>
+                    <th>Nutritional Info</th>
+                    <th>Option</th>
                 </tr>
-			{% endfor %}
-		</tbody>
+            </thead>
 
-	</table>
-</div>
-<div class="row">
-	<a href="{{url_for('add_ingredient')}}" class="waves-effect waves-light btn">
-		<i class="material-icons right">playlist_add</i>Add Ingredient
-	</a>
+            <tbody>
+                {% for ing in ingredients %}
+                    <tr>
+                        <td><strong>{{ing.ingredient_name}}</strong></td>
+                        <td></td>
+                        <td>
+                            <a href="{{url_for('delete_ingredient', ingredient_id=ing._id)}}"
+                                class="waves-effect waves-light btn btn_small">Del</a>
+                            <a href="{{url_for('edit_ingredient', ingredient_id=ing._id)}}"
+                                class="waves-effect waves-light btn btn_small blue">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    <!----------------------- Submit Button ----------------------------->
+    <div class="row">
+        <a href="{{url_for('add_ingredient')}}" class="waves-effect waves-light btn right">
+            <i class="material-icons right">playlist_add</i>Add Ingredient
+        </a>
+    </div>
 </div>
 
 {% endblock %}
