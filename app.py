@@ -23,6 +23,12 @@ def index():
     return render_template("index.html", categories=mongo.db.categories.find())
 
 
+@app.route('/drinks/<category_name>') #advance routing for the category buttons on the index.html page(index view)
+def drinks(category_name):
+    """Render drinks.html and finds all the drinks in recipe_book database"""
+    return render_template("drinks.html", drink=mongo.db.drink.find({'category_name': category_name}))
+
+
 @app.route('/get_drink')
 def get_drink():
     return render_template("drink.html",

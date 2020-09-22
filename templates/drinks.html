@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="flex-container">
+        {% for dri in drink %}
+            {{ dri.drink_name }}
+        {% endfor %}
+    </div>
+{% endblock %}
