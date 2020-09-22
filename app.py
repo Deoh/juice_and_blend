@@ -18,11 +18,17 @@ mongo = PyMongo(app)
 
 # ------------------------Drinks List Page----------------------
 @app.route('/')
+@app.route('/index')
+def index():
+    return render_template("index.html", categories=mongo.db.categories.find())
+
+
 @app.route('/get_drink')
 def get_drink():
     return render_template("drink.html",
                            drink=mongo.db.drink.find(),
                            categories=mongo.db.categories.find())
+
 
 # ------------------------Add Drink Page----------------------
 @app.route('/add_drink')

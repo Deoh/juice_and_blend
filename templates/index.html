@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="parallax-container opaque-overlay">
+	<div class="parallax"><img src="{{url_for('static', filename='images/homepage-image.png')}}"></div>
+		<h1 class="title center">Juice & Blend</h1>
+		<h5 class="subtitle center">A place where you can find may drink recipes made of fresh fruits and vegetables and
+			share your own!</h5>
+	</div>
+	<div class="flex-container">
+		{% for cat in categories %}
+
+			<a class="waves-effect waves-light btn card-panel" href="/drink/{{cat.category_name}}" >
+				<div class="">
+					<span class="white-text">{{cat.category_name}}</span>
+				</div>
+			</a>
+
+		{% endfor %}
+	</div>
+	{% endblock %}
+    
