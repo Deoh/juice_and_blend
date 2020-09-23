@@ -37,8 +37,8 @@ def get_drink():
 
 @app.route('/image/<filename>')
 def image(filename):
-    """Finds the image file with the specifiied filename when {{ url_for('image', filename=drink.image_filename) }} 
-        is used in the html template"""
+    """Finds image file in the recipe_book database with <filename> taken from {{ url_for('image', filename=drink.image_filename) }} 
+        used in the html template"""
     return mongo.send_file(filename)
 
 # ------------------------Add Drink Page----------------------
@@ -59,7 +59,7 @@ def insert_drink():
         'image_filename': request.form.to_dict()['image_filename']
     })
 
-    # takes the file form the input form and uploads is to mongoDB
+    # takes the file input form data and uploads it to mongoDB
     image = request.files['image_file']
     mongo.save_file(image.filename, image)
     
