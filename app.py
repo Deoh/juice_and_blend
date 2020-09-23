@@ -35,6 +35,11 @@ def get_drink():
                            drink=mongo.db.drink.find(),
                            categories=mongo.db.categories.find())
 
+@app.route('/image/<filename>')
+def image(filename):
+    """Finds the image file with the specifiied filename when {{ url_for('image', filename=drink.image_filename) }} 
+        is used in the html template"""
+    return mongo.send_file(filename)
 
 # ------------------------Add Drink Page----------------------
 @app.route('/add_drink')
@@ -51,8 +56,13 @@ def insert_drink():
         'drink_name': request.form.to_dict()['drink_name'],
         'ingredient_name': request.form.to_dict(flat=False)['ingredient_name'],
         'instruction': request.form.to_dict()['instruction'],
-
+        'image_filename': request.form.to_dict()['image_filename']
     })
+
+    # takes the file form the input form and uploads is to mongoDB
+    image = request.files['image_file']
+    mongo.save_file(image.filename, image)
+    
     return redirect(url_for('get_drink'))
 
 # ------------------------Edit Drink Page----------------------

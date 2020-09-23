@@ -4,7 +4,7 @@
 <div class="container">
     <h3>Add Drink</h3>
     <div class="row">
-        <form action="{{ url_for('insert_drink') }}" method="POST" class="col s12">
+        <form action="{{ url_for('insert_drink') }}" method="POST" class="col s12" enctype="multipart/form-data">
             <!-------------------- Drink Category Selector ----------------------------->
             <div class="row">
                 <div class="input-field col s12">
@@ -51,10 +51,10 @@
 			<div class="file-field input-field">
 				<div class="btn">
 			    	<span>Image</span>
-				    <input type="file">
+				    <input id="image_file" name="image_file" type="file">
 			    </div>
 				<div class="file-path-wrapper">
-					<input id="image_file" name="image_file" class="file-path validate" type="text">
+					<input id="image_filename" name="image_filename" class="file-path validate" type="text">
 			    </div>
 			</div>
             <!------------------------------- Submit Button --------------------------------->
