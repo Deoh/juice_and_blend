@@ -8,15 +8,17 @@
 </div>
 <div class="flex-container">
 	{% for dri in drink %}
-	<div class="card">
-		<div class="card-image waves-effect waves-block waves-light">
-
-        </div>
-		<div class="card-content">
-			<span class="card-title activator grey-text text-darken-4"><strong>{{dri.drink_name}}</strong><i class="material-icons right">more_vert</i></span>
-			
-		</div>
-		<div class="card-reveal">
+	<div class="card fade-container waves-effect waves-block waves-dark">
+		<!-- <div class="card-image waves-effect waves-block waves-light"> -->
+            <img class="card-image" src="{{ url_for('image', filename=dri.image_filename) }}">
+            <div class="fade-content">
+			    <span class="card-title activator grey-text text-darken-4"><strong>{{dri.drink_name}}</strong></span>
+                <hr>
+                <span class="card-title grey-text text-darken-4">{% for i in dri.ingredient_name %}  {{i}}<br> {% endfor %}</span>		
+		    </div>
+        <!-- </div> -->
+		
+		<!-- <div class="card-reveal">
 			<span class="card-title grey-text text-darken-4"><strong>{{dri.drink_name}}</strong><i class="material-icons right">close</i></span>
             <span class="card-title grey-text text-darken-4">{% for i in dri.ingredient_name %}  {{i}}<br> {% endfor %}</span>
             <div class="divider"></div>
@@ -26,7 +28,7 @@
         <div class="card-action center">
             <a href="{{ url_for('remove_drink', drink_id=dri._id) }}" class="waves-effect waves-light btn btn_small">Del</a>
 			<a href="{{ url_for('edit_drink', drink_id=dri._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-        </div>
+        </div> -->
 	</div>
 	{% endfor %}
 </div>
